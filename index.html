@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopNest | Premium E-Commerce</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">ShopNest</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="window.location.href='cart.html'">🛒 <span id="cart-count">0</span></button>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </div>
+    <button class="hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-tag">New Season 2026</p>
+      <h1 class="hero-title">Discover <br><em>Premium</em> Picks</h1>
+      <p class="hero-sub">Curated collections for the modern lifestyle. Quality you can feel.</p>
+      <div class="hero-btns">
+        <a href="products.html" class="btn-primary">Shop Now</a>
+        <a href="about.html" class="btn-outline">Our Story</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-badge">🔥 Hot Deal</div>
+        <div class="hero-img-placeholder">🛍️</div>
+        <p>Up to 50% Off</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="feature-card">
+      <span>🚚</span>
+      <h3>Free Shipping</h3>
+      <p>On all orders above ₹999</p>
+    </div>
+    <div class="feature-card">
+      <span>🔄</span>
+      <h3>Easy Returns</h3>
+      <p>30-day hassle-free returns</p>
+    </div>
+    <div class="feature-card">
+      <span>🔒</span>
+      <h3>Secure Payment</h3>
+      <p>100% safe transactions</p>
+    </div>
+    <div class="feature-card">
+      <span>🎁</span>
+      <h3>Gift Wrapping</h3>
+      <p>Free on special orders</p>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section-products">
+    <h2 class="section-title">Featured Products</h2>
+    <div class="products-grid" id="home-products"></div>
+    <div class="center-btn">
+      <a href="products.html" class="btn-primary">View All Products</a>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h2>Stay in the Loop</h2>
+    <p>Subscribe for exclusive deals and new arrivals.</p>
+    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="newsletter-msg" id="newsletter-msg"></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <h3>ShopNest</h3>
+        <p>Your one-stop premium shopping destination.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>📧 hello@shopnest.com</p>
+        <p>📞 +91 98765 43210</p>
+        <p>📍 Bhopal, MP, India</p>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 ShopNest. Built for ApexPlanet Task-5.</p>
+  </footer>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Load 4 featured products on home page
+    const homeGrid = document.getElementById('home-products');
+    productsData.slice(0, 4).forEach(p => {
+      homeGrid.innerHTML += createProductCard(p);
+    });
+  </script>
+</body>
+</html>
