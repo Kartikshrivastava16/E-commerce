@@ -4,86 +4,186 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ShopNest | Premium E-Commerce</title>
+  <meta name="description" content="ShopNest – Curated premium products for the modern lifestyle." />
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <nav class="navbar">
+  <nav class="navbar" id="navbar">
     <div class="nav-logo">ShopNest</div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="products.html">Products</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="cart-btn" onclick="window.location.href='cart.html'">🛒 <span id="cart-count">0</span></button>
-      <button class="theme-toggle" id="themeToggle">🌙</button>
+      <button class="cart-btn" onclick="window.location.href='cart.html'">🛒 Cart &nbsp;<span id="cart-count">0</span></button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
     </div>
-    <button class="hamburger" id="hamburger">☰</button>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">☰</button>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <p class="hero-tag">New Season 2026</p>
-      <h1 class="hero-title">Discover <br><em>Premium</em> Picks</h1>
-      <p class="hero-sub">Curated collections for the modern lifestyle. Quality you can feel.</p>
+      <p class="hero-tag">✦ New Season 2026</p>
+      <h1 class="hero-title">
+        Discover<br>
+        <em>Premium</em> Picks
+      </h1>
+      <p class="hero-sub">
+        Curated collections for the modern lifestyle.<br>
+        Quality you can feel, prices you'll love.
+      </p>
       <div class="hero-btns">
-        <a href="products.html" class="btn-primary">Shop Now</a>
+        <a href="products.html" class="btn-primary">Shop Now →</a>
         <a href="about.html" class="btn-outline">Our Story</a>
       </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>10K+</strong>
+          <span>Happy Customers</span>
+        </div>
+        <div class="hero-stat">
+          <strong>500+</strong>
+          <span>Products</span>
+        </div>
+        <div class="hero-stat">
+          <strong>4.8★</strong>
+          <span>Avg Rating</span>
+        </div>
+      </div>
     </div>
+
     <div class="hero-visual">
-      <div class="hero-card">
-        <div class="hero-badge">🔥 Hot Deal</div>
-        <div class="hero-img-placeholder">🛍️</div>
-        <p>Up to 50% Off</p>
+      <div class="hero-visual-inner">
+        <!-- Decorative rings -->
+        <div class="hero-ring r1"></div>
+        <div class="hero-ring r2"></div>
+
+        <!-- Floating mini cards -->
+        <div class="hero-float-card top-left">
+          <span class="fc-icon">🚚</span>
+          <span>Free Delivery</span>
+        </div>
+        <div class="hero-float-card bot-right">
+          <span class="fc-icon">⭐</span>
+          <span>Top Rated</span>
+        </div>
+
+        <!-- Main hero card -->
+        <div class="hero-main-card">
+          <div class="hero-badge">🔥 Hot Deal</div>
+          <div class="hero-emoji-big">🛍️</div>
+          <h3>Up to 50% Off</h3>
+          <p>On selected premium items</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES -->
+  <!-- MARQUEE -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Free Shipping Over ₹999</span>
+      <span>New Arrivals Every Week</span>
+      <span>30-Day Easy Returns</span>
+      <span>100% Genuine Products</span>
+      <span>Secure Payments</span>
+      <span>Gift Wrapping Available</span>
+      <span>Free Shipping Over ₹999</span>
+      <span>New Arrivals Every Week</span>
+      <span>30-Day Easy Returns</span>
+      <span>100% Genuine Products</span>
+      <span>Secure Payments</span>
+      <span>Gift Wrapping Available</span>
+    </div>
+  </div>
+
+  <!-- FEATURES STRIP -->
   <section class="features">
     <div class="feature-card">
-      <span>🚚</span>
-      <h3>Free Shipping</h3>
-      <p>On all orders above ₹999</p>
+      <div class="feature-icon">🚚</div>
+      <div class="feature-text">
+        <h3>Free Shipping</h3>
+        <p>On all orders above ₹999</p>
+      </div>
     </div>
     <div class="feature-card">
-      <span>🔄</span>
-      <h3>Easy Returns</h3>
-      <p>30-day hassle-free returns</p>
+      <div class="feature-icon">🔄</div>
+      <div class="feature-text">
+        <h3>Easy Returns</h3>
+        <p>30-day hassle-free returns</p>
+      </div>
     </div>
     <div class="feature-card">
-      <span>🔒</span>
-      <h3>Secure Payment</h3>
-      <p>100% safe transactions</p>
+      <div class="feature-icon">🔒</div>
+      <div class="feature-text">
+        <h3>Secure Payment</h3>
+        <p>100% safe transactions</p>
+      </div>
     </div>
     <div class="feature-card">
-      <span>🎁</span>
-      <h3>Gift Wrapping</h3>
-      <p>Free on special orders</p>
+      <div class="feature-icon">🎁</div>
+      <div class="feature-text">
+        <h3>Gift Wrapping</h3>
+        <p>Free on special orders</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories-section">
+    <div class="section-header">
+      <span class="section-tag">Browse By</span>
+      <h2 class="section-title">Shop Categories</h2>
+      <p class="section-sub">Find exactly what you need, from electronics to everyday essentials</p>
+    </div>
+    <div class="categories-grid">
+      <a href="products.html?cat=electronics" class="category-card fade-in">
+        <span class="category-emoji">📱</span>
+        <h3>Electronics</h3>
+        <p>6 products</p>
+      </a>
+      <a href="products.html?cat=fashion" class="category-card fade-in">
+        <span class="category-emoji">👔</span>
+        <h3>Fashion</h3>
+        <p>3 products</p>
+      </a>
+      <a href="products.html?cat=home" class="category-card fade-in">
+        <span class="category-emoji">🏠</span>
+        <h3>Home & Living</h3>
+        <p>3 products</p>
+      </a>
+      <a href="products.html?cat=sports" class="category-card fade-in">
+        <span class="category-emoji">⚽</span>
+        <h3>Sports</h3>
+        <p>4 products</p>
+      </a>
     </div>
   </section>
 
   <!-- FEATURED PRODUCTS -->
   <section class="section-products">
-    <h2 class="section-title">Featured Products</h2>
+    <div class="section-header">
+      <span class="section-tag">Hand-Picked</span>
+      <h2 class="section-title">Featured Products</h2>
+      <p class="section-sub">Our most loved items this season</p>
+    </div>
     <div class="products-grid" id="home-products"></div>
     <div class="center-btn">
-      <a href="products.html" class="btn-primary">View All Products</a>
+      <a href="products.html" class="btn-primary">View All Products →</a>
     </div>
   </section>
 
   <!-- NEWSLETTER -->
   <section class="newsletter">
     <h2>Stay in the Loop</h2>
-    <p>Subscribe for exclusive deals and new arrivals.</p>
+    <p>Subscribe for exclusive deals, new arrivals and member-only offers.</p>
     <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-      <input type="email" placeholder="Enter your email" required />
+      <input type="email" placeholder="Enter your email address" required />
       <button type="submit">Subscribe</button>
     </form>
     <p class="newsletter-msg" id="newsletter-msg"></p>
@@ -92,36 +192,74 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-grid">
-      <div>
-        <h3>ShopNest</h3>
-        <p>Your one-stop premium shopping destination.</p>
+      <div class="footer-brand">
+        <div class="nav-logo">ShopNest</div>
+        <p>Your one-stop premium shopping destination. Quality products, delivered with care.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" aria-label="Instagram">📸</a>
+          <a href="#" class="social-btn" aria-label="Twitter">🐦</a>
+          <a href="#" class="social-btn" aria-label="Facebook">📘</a>
+          <a href="#" class="social-btn" aria-label="YouTube">▶️</a>
+        </div>
       </div>
-      <div>
+      <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="products.html">Products</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="products.html">Electronics</a></li>
+          <li><a href="products.html">Fashion</a></li>
+          <li><a href="products.html">Home & Living</a></li>
+          <li><a href="products.html">Sports</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
         <h4>Contact</h4>
         <p>📧 hello@shopnest.com</p>
         <p>📞 +91 98765 43210</p>
         <p>📍 Bhopal, MP, India</p>
+        <p>🕐 Mon–Sat: 9am – 6pm</p>
       </div>
     </div>
-    <p class="footer-copy">© 2026 ShopNest. Built for ApexPlanet Task-5.</p>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 ShopNest. Built for ApexPlanet Task-5 by Karthik.</p>
+      <div class="footer-badges">
+        <span class="pay-badge">UPI</span>
+        <span class="pay-badge">Visa</span>
+        <span class="pay-badge">Mastercard</span>
+        <span class="pay-badge">NetBanking</span>
+      </div>
+    </div>
   </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
   <script src="js/products-data.js"></script>
   <script src="js/main.js"></script>
   <script>
-    // Load 4 featured products on home page
+    // Featured products (first 4)
     const homeGrid = document.getElementById('home-products');
     productsData.slice(0, 4).forEach(p => {
       homeGrid.innerHTML += createProductCard(p);
+    });
+
+    // Navbar scroll shadow
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+    });
+
+    // Back to top
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 </body>

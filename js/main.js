@@ -21,7 +21,7 @@ function addToCart(id) {
   }
   localStorage.setItem('shopnest_cart', JSON.stringify(cart));
   updateCartCount();
-  showToast(`"${product.name}" added to cart!`);
+  showToast(`🛒 "${product.name}" added to cart!`);
 }
 
 function removeFromCart(id) {
@@ -29,6 +29,25 @@ function removeFromCart(id) {
   localStorage.setItem('shopnest_cart', JSON.stringify(cart));
   updateCartCount();
   if (typeof renderCart === 'function') renderCart();
+}
+
+// ======== WISHLIST ========
+function getWishlist() {
+  return JSON.parse(localStorage.getItem('shopnest_wish') || '[]');
+}
+
+function toggleWishlist(id, btn) {
+  let wish = getWishlist();
+  if (wish.includes(id)) {
+    wish = wish.filter(i => i !== id);
+    if (btn) btn.textContent = '🤍';
+    showToast('Removed from wishlist');
+  } else {
+    wish.push(id);
+    if (btn) btn.textContent = '❤️';
+    showToast('❤️ Added to wishlist!');
+  }
+  localStorage.setItem('shopnest_wish', JSON.stringify(wish));
 }
 
 // ======== TOAST ========
@@ -41,41 +60,43 @@ function showToast(msg) {
   }
   toast.textContent = msg;
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 3000);
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+// ======== STAR RATING ========
+function renderStars(rating) {
+  const full  = Math.floor(rating);
+  const half  = rating % 1 >= 0.5 ? 1 : 0;
+  const empty = 5 - full - half;
+  return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
 }
 
 // ======== PRODUCT CARD ========
-function formatReviews(n) {
-  if (n >= 100000) return (n / 100000).toFixed(1).replace(/\.0$/, '') + 'L+';
-  if (n >= 1000)   return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K+';
-  return n + '+';
-}
-
 function createProductCard(p) {
-  const discount = p.originalPrice
-    ? Math.round((1 - p.price / p.originalPrice) * 100)
-    : 0;
-
+  const wish = getWishlist().includes(p.id);
   return `
-    <div class="product-card" data-id="${p.id}">
+    <div class="product-card fade-in" data-id="${p.id}">
       ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
-      ${discount >= 10 ? `<div class="product-discount">-${discount}%</div>` : ''}
-      <div class="product-image">
-        ${p.image ? `<img src="${p.image}" alt="${p.name}" />` : `<div class="product-emoji">${p.emoji}</div>`}
+      <button class="product-wish" onclick="toggleWishlist(${p.id}, this)" title="Wishlist">
+        ${wish ? '❤️' : '🤍'}
+      </button>
+      <div class="product-img-wrap">
+        ${p.image
+          ? `<img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" /><div class="product-emoji" style="display:none">${p.emoji}</div>`
+          : `<div class="product-emoji">${p.emoji}</div>`
+        }
       </div>
       <div class="product-info">
-        ${p.brand ? `<span class="product-brand">${p.brand}</span>` : ''}
         <h3 class="product-name">${p.name}</h3>
         <p class="product-desc">${p.description}</p>
         <div class="product-rating-row">
-          <span class="product-rating">★ ${p.rating}</span>
-          ${p.reviews ? `<span class="product-reviews">(${formatReviews(p.reviews)} reviews)</span>` : ''}
+          <span class="product-stars">${renderStars(p.rating)}</span>
+          <span class="product-rating">${p.rating}</span>
+          <span class="product-reviews">(${Math.floor(p.rating * 120)} reviews)</span>
         </div>
         <div class="product-footer">
-          <div class="product-price-block">
-            <span class="product-price">₹${p.price.toLocaleString()}</span>
-            ${p.originalPrice ? `<span class="product-original-price">₹${p.originalPrice.toLocaleString()}</span>` : ''}
-          </div>
+          <span class="product-price">₹${p.price.toLocaleString()}</span>
           <button class="add-to-cart" onclick="addToCart(${p.id})">Add to Cart</button>
         </div>
       </div>
@@ -86,7 +107,8 @@ function createProductCard(p) {
 // ======== NEWSLETTER ========
 function subscribeNewsletter(e) {
   e.preventDefault();
-  document.getElementById('newsletter-msg').textContent = '✅ Subscribed! Welcome to ShopNest.';
+  const msg = document.getElementById('newsletter-msg');
+  if (msg) msg.textContent = '✅ Subscribed! Welcome to ShopNest.';
   e.target.reset();
 }
 
@@ -107,11 +129,22 @@ function toggleTheme() {
 
 // ======== HAMBURGER ========
 function initNav() {
-  const ham = document.getElementById('hamburger');
-  const links = document.querySelector('.nav-links');
+  const ham   = document.getElementById('hamburger');
+  const links = document.getElementById('navLinks');
   if (ham && links) {
-    ham.addEventListener('click', () => links.classList.toggle('open'));
+    ham.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      ham.textContent = open ? '✕' : '☰';
+    });
+    // close on link click (mobile)
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        ham.textContent = '☰';
+      });
+    });
   }
+
   const toggle = document.getElementById('themeToggle');
   if (toggle) toggle.addEventListener('click', toggleTheme);
 }
@@ -120,13 +153,14 @@ function initNav() {
 function initScrollAnim() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
     });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.product-card, .feature-card, .team-card, .about-stats .stat').forEach(el => {
-    el.classList.add('fade-in');
-    observer.observe(el);
-  });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 }
 
 // ======== INIT ========
@@ -134,5 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initNav();
   updateCartCount();
-  initScrollAnim();
+  // slight delay so cards render first
+  setTimeout(initScrollAnim, 100);
 });

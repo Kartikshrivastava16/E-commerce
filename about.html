@@ -5,28 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | ShopNest</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <nav class="navbar">
+  <nav class="navbar" id="navbar">
     <div class="nav-logo">ShopNest</div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="products.html">Products</a></li>
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="cart-btn" onclick="window.location.href='cart.html'">🛒 <span id="cart-count">0</span></button>
+      <button class="cart-btn" onclick="window.location.href='cart.html'">🛒 Cart &nbsp;<span id="cart-count">0</span></button>
       <button class="theme-toggle" id="themeToggle">🌙</button>
     </div>
     <button class="hamburger" id="hamburger">☰</button>
   </nav>
 
   <section class="page-header">
+    <span class="section-tag">Our Story</span>
     <h1>About ShopNest</h1>
-    <p>Our story, mission and values</p>
+    <p>Mission, values, and the people behind the store</p>
   </section>
 
   <section class="about-section">
@@ -34,12 +34,12 @@
       <div class="about-text">
         <h2>Who We Are</h2>
         <p>ShopNest is a premium e-commerce platform built to deliver quality products with an exceptional shopping experience. We believe shopping should be joyful, easy, and reliable.</p>
-        <p>Founded in 2024, we've curated collections across electronics, fashion, home décor and sports — all handpicked for quality and value.</p>
+        <p>Founded in 2024, we've curated collections across electronics, fashion, home décor and sports — all handpicked for quality and value. Every product is vetted before it reaches our shelves.</p>
         <div class="about-stats">
-          <div class="stat"><h3>10K+</h3><p>Happy Customers</p></div>
-          <div class="stat"><h3>500+</h3><p>Products</p></div>
-          <div class="stat"><h3>50+</h3><p>Brands</p></div>
-          <div class="stat"><h3>4.8★</h3><p>Average Rating</p></div>
+          <div class="stat fade-in"><h3>10K+</h3><p>Happy Customers</p></div>
+          <div class="stat fade-in"><h3>500+</h3><p>Products</p></div>
+          <div class="stat fade-in"><h3>50+</h3><p>Brands</p></div>
+          <div class="stat fade-in"><h3>4.8★</h3><p>Average Rating</p></div>
         </div>
       </div>
       <div class="about-visual">
@@ -53,19 +53,22 @@
   </section>
 
   <section class="team-section">
-    <h2 class="section-title">Meet the Team</h2>
+    <div class="section-header">
+      <span class="section-tag">The People</span>
+      <h2 class="section-title">Meet the Team</h2>
+    </div>
     <div class="team-grid">
-      <div class="team-card">
+      <div class="team-card fade-in">
         <div class="team-avatar">👤</div>
         <h3>Karthik</h3>
         <p>Founder & Developer</p>
       </div>
-      <div class="team-card">
+      <div class="team-card fade-in">
         <div class="team-avatar">👤</div>
         <h3>Priya S.</h3>
         <p>Product Designer</p>
       </div>
-      <div class="team-card">
+      <div class="team-card fade-in">
         <div class="team-avatar">👤</div>
         <h3>Rahul M.</h3>
         <p>Marketing Lead</p>
@@ -74,10 +77,22 @@
   </section>
 
   <footer class="footer">
-    <p class="footer-copy">© 2026 ShopNest. Built for ApexPlanet Task-5.</p>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 ShopNest. Built for ApexPlanet Task-5.</p>
+      <div class="footer-badges">
+        <span class="pay-badge">UPI</span>
+        <span class="pay-badge">Visa</span>
+        <span class="pay-badge">Mastercard</span>
+      </div>
+    </div>
   </footer>
 
   <script src="js/products-data.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
 </body>
 </html>
