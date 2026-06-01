@@ -16,6 +16,7 @@ const productsData = [
     rating: 4.4,
     reviews: 1284500,
     emoji: "🎧",
+    image: "images/earbuds.jpg",
     description: "42H total playback, ENx™ noise cancellation mic, IPX4 water-resistant, instant voice assistant support.",
     badge: "Best Seller",
     inStock: true
@@ -30,6 +31,7 @@ const productsData = [
     rating: 4.3,
     reviews: 87600,
     emoji: "📱",
+    image: "images/phone.jpg",
     description: "MediaTek Dimensity 6100+ 5G, 50MP AI triple camera, 5000mAh battery, 90Hz display.",
     badge: "New",
     inStock: true
@@ -44,6 +46,7 @@ const productsData = [
     rating: 4.2,
     reviews: 312000,
     emoji: "⌚",
+    image: "images/smartwatch.jpg",
     description: "Bluetooth calling, 1.83\" HD display, SpO2 & heart rate monitor, 100+ sports modes, 7-day battery.",
     badge: "Hot Deal",
     inStock: true
@@ -58,6 +61,7 @@ const productsData = [
     rating: 4.4,
     reviews: 54800,
     emoji: "⌨️",
+    image: "images/keyboard.jpg",
     description: "2.4GHz wireless, 2-year battery life on keyboard, spill-resistant design, Plug-and-play USB receiver.",
     badge: "",
     inStock: true
@@ -72,6 +76,7 @@ const productsData = [
     rating: 4.5,
     reviews: 96400,
     emoji: "🔊",
+    image: "images/speaker.jpg",
     description: "IP67 waterproof & dustproof, 5 hours playtime, USB-C charging, bold JBL Pro Sound.",
     badge: "Top Rated",
     inStock: true
@@ -86,6 +91,7 @@ const productsData = [
     rating: 4.3,
     reviews: 223000,
     emoji: "📺",
+    image: "images/tv.jpg",
     description: "Android TV 11, 20W stereo speakers, Dolby Audio, 1GB RAM + 8GB storage, Google Assistant built-in.",
     badge: "",
     inStock: true
@@ -102,6 +108,7 @@ const productsData = [
     rating: 4.3,
     reviews: 43700,
     emoji: "👕",
+    image: "images/tshirt.jpg",
     description: "100% cotton piqué, regular fit, ribbed collar, tipped placket with 2-button closure. Machine washable.",
     badge: "Best Seller",
     inStock: true
@@ -116,6 +123,7 @@ const productsData = [
     rating: 4.5,
     reviews: 178000,
     emoji: "👖",
+    image: "images/jeans.jpg",
     description: "Sits below waist, slim from hip to ankle. 99% cotton + 1% elastane stretch denim. Classic 5-pocket styling.",
     badge: "",
     inStock: true
@@ -130,6 +138,7 @@ const productsData = [
     rating: 4.2,
     reviews: 29400,
     emoji: "🎒",
+    image: "images/backpack.jpg",
     description: "Water-resistant 210D polyester, padded laptop sleeve (fits 15.6\"), 5 compartments, ergonomic shoulder straps.",
     badge: "New",
     inStock: true
@@ -144,6 +153,7 @@ const productsData = [
     rating: 4.4,
     reviews: 61200,
     emoji: "🕐",
+    image: "images/watch.jpg",
     description: "Stainless steel case, mineral glass, 30m water resistance, leather strap, Japanese quartz movement.",
     badge: "",
     inStock: true
@@ -160,6 +170,7 @@ const productsData = [
     rating: 4.4,
     reviews: 134000,
     emoji: "🍶",
+    image: "images/mixer.jpg",
     description: "3 stainless steel jars (0.4L, 0.8L, 1.5L), 3-speed control + pulse, motor overload protection, ISI approved.",
     badge: "Best Seller",
     inStock: true
@@ -174,6 +185,7 @@ const productsData = [
     rating: 4.6,
     reviews: 392000,
     emoji: "🧴",
+    image: "images/flask.jpg",
     description: "Double-wall insulation keeps hot 24hr / cold 48hr. Food-grade stainless steel, leak-proof lid.",
     badge: "Top Rated",
     inStock: true
@@ -188,6 +200,7 @@ const productsData = [
     rating: 4.5,
     reviews: 287000,
     emoji: "💡",
+    image: "images/bulb.jpg",
     description: "9W replaces 60W incandescent, 900 lumens, cool daylight 6500K, 15,000hr lifespan, B22 base.",
     badge: "",
     inStock: true
@@ -202,6 +215,7 @@ const productsData = [
     rating: 4.2,
     reviews: 56100,
     emoji: "🍳",
+    image: "images/cookware.jpg",
     description: "Includes 24cm tawa, 22cm kadhai, 20cm sauce pan. Granite finish coating, induction compatible, PFOA-free.",
     badge: "New",
     inStock: true
@@ -218,6 +232,7 @@ const productsData = [
     rating: 4.3,
     reviews: 38700,
     emoji: "👟",
+    image: "images/shoes.jpg",
     description: "EVA midsole with memory foam insole, mesh upper for breathability, anti-skid rubber outsole. Lightweight 280g.",
     badge: "Hot Deal",
     inStock: true
@@ -232,6 +247,7 @@ const productsData = [
     rating: 4.5,
     reviews: 72800,
     emoji: "🏋️",
+    image: "images/resistance.jpg",
     description: "5 resistance levels (2kg–25kg), natural latex, anti-snap technology, includes carry bag & workout guide.",
     badge: "Best Seller",
     inStock: true
@@ -246,6 +262,7 @@ const productsData = [
     rating: 4.4,
     reviews: 168000,
     emoji: "🧘",
+    image: "images/yoga_mat.jpg",
     description: "6mm thick NBR foam, anti-slip texture both sides, moisture-resistant, includes carrying strap. 183×61cm.",
     badge: "",
     inStock: true
@@ -260,6 +277,7 @@ const productsData = [
     rating: 4.3,
     reviews: 23600,
     emoji: "🏏",
+    image: "images/cricket.jpg",
     description: "Rubber core with durable felt covering, ideal for practice and tape-ball cricket. Standard 5.5oz weight.",
     badge: "",
     inStock: true
@@ -274,6 +292,7 @@ const productsData = [
     rating: 4.6,
     reviews: 47300,
     emoji: "🏕️",
+    image: "images/backpack_hiking.jpg",
     description: "100% recycled polyester, hydration-compatible (bladder sold separately), padded back panel, rain cover included.",
     badge: "Top Rated",
     inStock: true
@@ -288,6 +307,7 @@ const productsData = [
     rating: 4.4,
     reviews: 89200,
     emoji: "⚖️",
+    image: "images/scale.jpg",
     description: "Precision up to 1g, 5kg max capacity, tare function, stainless steel platform, unit conversion (g/kg/oz/lb).",
     badge: "",
     inStock: true
@@ -305,6 +325,7 @@ const productsData = [
     rating: 4.3,
     reviews: 45200,
     emoji: "🎧",
+    image: "images/headphones.jpg",
     description: "Lightweight on-ear Bluetooth headphones, 35H battery life, clear sound and built-in mic.",
     badge: "Best Seller",
     inStock: true
@@ -319,6 +340,7 @@ const productsData = [
     rating: 4.2,
     reviews: 68200,
     emoji: "📱",
+    image: "images/phone.jpg",
     description: "Exynos / MediaTek performance, 6000mAh battery, 50MP camera, 90Hz display for smooth browsing.",
     badge: "New",
     inStock: true
@@ -333,6 +355,7 @@ const productsData = [
     rating: 4.1,
     reviews: 15800,
     emoji: "👗",
+    image: "images/dress.jpg",
     description: "Lightweight viscose blend, elasticated waist, midi length with cap sleeves. Machine washable.",
     badge: "",
     inStock: true
@@ -347,6 +370,7 @@ const productsData = [
     rating: 4.5,
     reviews: 23100,
     emoji: "🥣",
+    image: "images/blender.jpg",
     description: "Powerful motor with whisk, chopper and blending attachments. Stainless steel shaft, dishwasher-safe parts.",
     badge: "Top Rated",
     inStock: true
@@ -361,6 +385,7 @@ const productsData = [
     rating: 4.2,
     reviews: 9200,
     emoji: "🏸",
+    image: "images/shuttlecock.jpg",
     description: "Durable nylon shuttlecocks suitable for practice and club play. Consistent flight and good durability.",
     badge: "",
     inStock: true
@@ -375,6 +400,7 @@ const productsData = [
     rating: 4.3,
     reviews: 27000,
     emoji: "🍳",
+    image: "images/tawa.jpg",
     description: "Heavy gauge aluminium with multi-layer non-stick coating, induction compatible, bakelite handle.",
     badge: "Hot Deal",
     inStock: true
@@ -389,6 +415,7 @@ const productsData = [
     rating: 4.4,
     reviews: 54000,
     emoji: "🧴",
+    image: "images/skincare.jpg",
     description: "Gentle cleanser that removes makeup and impurities without rinsing. Suitable for sensitive skin.",
     badge: "Top Rated",
     inStock: true
@@ -403,6 +430,7 @@ const productsData = [
     rating: 4.7,
     reviews: 18400,
     emoji: "🧩",
+    image: "images/lego.jpg",
     description: "Classic colourful bricks for creative building play. Includes ideas booklet and assorted pieces.",
     badge: "",
     inStock: true
@@ -417,6 +445,7 @@ const productsData = [
     rating: 4.5,
     reviews: 7600,
     emoji: "🫘",
+    image: "images/dal.jpg",
     description: "Premium quality toor dal, cleaned and packed for freshness. Rich in protein and fiber.",
     badge: "",
     inStock: true
@@ -431,6 +460,7 @@ const productsData = [
     rating: 4.4,
     reviews: 13400,
     emoji: "📷",
+    image: "images/camera.jpg",
     description: "24.1MP APS-C sensor, Full HD video, optical viewfinder, compatibility with EF and EF-S lenses.",
     badge: "Best Seller",
     inStock: true

@@ -60,7 +60,9 @@ function createProductCard(p) {
     <div class="product-card" data-id="${p.id}">
       ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
       ${discount >= 10 ? `<div class="product-discount">-${discount}%</div>` : ''}
-      <div class="product-emoji">${p.emoji}</div>
+      <div class="product-image">
+        ${p.image ? `<img src="${p.image}" alt="${p.name}" />` : `<div class="product-emoji">${p.emoji}</div>`}
+      </div>
       <div class="product-info">
         ${p.brand ? `<span class="product-brand">${p.brand}</span>` : ''}
         <h3 class="product-name">${p.name}</h3>
